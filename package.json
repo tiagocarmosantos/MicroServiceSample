@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "loader.js",
+  "engines": {
+    "node": "8.11.1",
+    "npm": "4.6.1"
+  },
+  "scripts": {
+    "dev": "nodemon",
+    "production": "pm2 start loader.js --name backend"
+  },
+  "author": "Tiago Carmo Santos",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-query-int": "^2.0.0",
+    "jsonwebtoken": "^7.4.3",
+    "lodash": "^4.17.5",
+    "mongoose": "^4.13.12",
+    "mongoose-paginate": "^5.0.3",
+    "node-restful": "^0.2.6",
+    "pm2": "^2.10.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}

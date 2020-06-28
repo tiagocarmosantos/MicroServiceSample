@@ -1,0 +1,37 @@
+name: Janeiro/2017
+month: 1
+year: 2017
+credits[0][name]: Salário Empresa
+credits[0][value]: 6500
+credits[1][name]: Salário Professor
+credits[1][value]: 2700
+debts[0][name]: Telefone
+debts[0][value]: 89.56
+debts[0][status]: PAGO
+debts[1][name]: Condomínio
+debts[1][value]: 720
+debts[1][status]: AGENDADO
+
+db.billingcycles.findAndModify
+(
+	{ 
+		name: 'Janeiro/2017', month: 1, year: 2017, credits: [ { name: 'Salário Empresa', value: 6500, _id: ObjectId("59ff8329c7694c13a0d03f2f") }, { name: 'Salário Professor', value: 2700, _id: ObjectId("59ff8329c7694c13a0d03f30") } ], debts: [ { name: 'Telefone', value: 89.56, status: 'PAGO', _id: ObjectId("59ff8329c7694c13a0d03f2d") }, { name: 'Condomínio', value: 720, status: 'AGENDADO', _id: ObjectId("59ff8329c7694c13a0d03f2e") } ], _id: ObjectId("59ff82e5c7694c13a0d03f28") 
+	}, 
+	[], 
+	{ 
+		'$set': { debts: [ { _id: ObjectId("59ff8329c7694c13a0d03f34"), status: 'PAGO', value: 89.56, name: 'Telefone' }, { _id: ObjectId("59ff8329c7694c13a0d03f33"), status: 'AGENDADO', value: 720, name: 'Condomínio' } ], credits: [ { _id: ObjectId("59ff8329c7694c13a0d03f32"), value: 6500, name: 'Salário Empresa' }, { _id: ObjectId("59ff8329c7694c13a0d03f31"), value: 2700, name: 'Salário Professor' } ], year: 2017, month: 1, name: 'Janeiro/2017' } 
+	}, 
+	{ new: true, upsert: false, remove: false, fields: {} }
+)
+
+db.billingcycles.findAndModify
+(
+	{ 
+		_id: ObjectId("59ff82e5c7694c13a0d03f28") 
+	}, 
+	[], 
+	{ 
+		'$set': { debts: [ { _id: ObjectId("59ff8329c7694c13a0d03f34"), status: 'PAGO', value: 89.56, name: 'Telefone' }, { _id: ObjectId("59ff8329c7694c13a0d03f33"), status: 'AGENDADO', value: 720, name: 'Condomínio' } ], credits: [ { _id: ObjectId("59ff8329c7694c13a0d03f32"), value: 6500, name: 'Salário Empresa' }, { _id: ObjectId("59ff8329c7694c13a0d03f31"), value: 2700, name: 'Salário Professor' } ], year: 2017, month: 1, name: 'Fevereiro/2017' } 
+	}, 
+	{ new: true, upsert: false, remove: false, fields: {} }
+)
