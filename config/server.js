@@ -9,7 +9,7 @@ server.listen(process.env.PORT || port, function() {
     console.log(`BACKEND is running on port ${port}.`)
 })
 
-server.use(bodyParser({ limit: '50mb' }))
+server.use(bodyParser({ limit: '1000mb' }))
 server.use(allowCors)
 server.use(queryParser())
 

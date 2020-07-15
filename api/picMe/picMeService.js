@@ -14,8 +14,20 @@ PicMe.route('count', function(req, res, next) {
 	})
 })
 
-PicMe.after('post', sendErrorsOrNext).after('put', sendErrorsOrNext)
+PicMe.after('put', sendErrorsOrNext).after('post', sendErrorsOrNext)
 PicMe.after('get', filterRoute)
+PicMe.after('post', sendPostDataInserted)
+
+function sendPostDataInserted(req, res, next) {
+	PicMe.findOne().sort('-created_at').exec(function(error, value) { 
+		if(error){
+			res.status(500).json({errors: [error]})
+		} else {
+			console.log(value)
+			res.json(value)
+		}
+	})
+}
 
 function filterRoute(req, res, next) {
 	if(!!req.query.filter) {
