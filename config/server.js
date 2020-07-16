@@ -14,7 +14,7 @@ server.use(allowCors)
 server.use(queryParser())
 
 server.use(function(req, res, next) {
-	//console.log('Express: Request: ')
+	console.log('Express: Request: ')
 	//console.log(req)
 	next()
 })
