@@ -8,6 +8,7 @@
     "npm": "4.6.1"
   },
   "scripts": {
+    "database": "mongod --dbpath C:\\data\\db",
     "dev": "nodemon --inspect",
     "production": "pm2 start loader.js --name MicroServiceSample"
   },
