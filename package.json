@@ -9,8 +9,11 @@
   },
   "scripts": {
     "database": "mongod --dbpath C:\\data\\db",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "CI": "git add . && git commit -m \"Automatic Commit\" && git push origin master",
+    "CD": "git push heroku master",
     "dev": "nodemon --inspect",
-    "production": "pm2 start loader.js --name MicroServiceSample"
+    "production": "npm run CI && npm run CD"
   },
   "author": "Tiago Carmo Santos",
   "license": "ISC",

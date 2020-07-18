@@ -7,6 +7,10 @@
         {
             "name": "API_DEV",
              "configurations": ["MongoDB", "Launch API" ]
+        },
+        {
+            "name": "API_PROD",
+             "configurations": ["Publish API" ]
         }
     ],
     "configurations": [
@@ -21,6 +25,12 @@
             "request": "launch",
             "type": "node-terminal",
             "command": "npm run dev",
-        }
+        },
+        {
+            "name": "Publish API",
+            "request": "launch",
+            "type": "node-terminal",
+            "command": "npm run production",
+        },
     ]
 }
