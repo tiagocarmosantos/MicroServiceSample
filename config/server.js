@@ -1,3 +1,4 @@
+require('dotenv').config()
 const bodyParser = require('body-parser')
 const express = require('express')
 const server = express()
@@ -9,7 +10,9 @@ server.listen(process.env.PORT || port, function() {
     console.log(`BACKEND is running on port ${port}.`)
 })
 
-server.use(bodyParser({ limit: '1000mb' }))
+server.use(express.urlencoded({ extended: true }))
+server.use(express.json())
+
 server.use(allowCors)
 server.use(queryParser())
 

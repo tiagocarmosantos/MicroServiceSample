@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
-mongoose.Promise = global.Promise
+const uriMongoDB = process.env.MONGOLAB_URI || 'mongodb://localhost/database'
 
-const url = process.env.MONGOLAB_URI ? process.env.MONGOLAB_URI : 'mongodb://localhost/database'
-module.exports = mongoose.connect(url, { useMongoClient: true })
+mongoose.Promise = global.Promise
+module.exports = mongoose.connect(uriMongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
 
 mongoose.Error.messages.general.required = "O atributo '{PATH}' é obrigatório!"
 mongoose.Error.messages.Number.min = "O '{VALUE}' é menor que o limite minimo de '{MIN}'."
