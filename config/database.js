@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const uriMongoDB = `mongodb+srv://admuser:Softtek01@cluster0.pg74r.mongodb.net/apptemplatesample?authSource=admin&replicaSet=atlas-tjga6r-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true` || 'mongodb://localhost/database'
+const uriMongoDB = process.env.MONGOLAB_URI || 'mongodb://localhost/database'
 
 mongoose.Promise = global.Promise
 module.exports = mongoose.connect(uriMongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
