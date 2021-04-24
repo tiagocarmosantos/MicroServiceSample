@@ -18,7 +18,7 @@
   "author": "Tiago Carmo Santos",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "express-query-int": "^2.0.0",
